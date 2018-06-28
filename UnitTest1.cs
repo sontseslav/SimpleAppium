@@ -49,6 +49,9 @@ namespace SimpleAppium
                 = new DesiredCapabilities(OptDic);
             driver = new RemoteWebDriver(
                 new System.Uri("http://127.0.0.1:4723/wd/hub"), options);
+            driver.Navigate().GoToUrl("https://www.google.com");
+            PageFactory.InitElements(driver, this);
+            Assert.IsTrue(TxtSearch.Displayed);
         }
 
         [TearDown]
